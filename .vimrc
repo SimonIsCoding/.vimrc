@@ -72,5 +72,9 @@ set noswapfile
 set termguicolors
 set fileformat=unix
 set encoding=UTF-8
+set ruler
 inoremap <c-x> <Esc>:Lex<cr>:vertical resize 23<cr>
 nnoremap <c-x> <Esc>:Lex<cr>:vertical resize 23<cr>
+vnoremap <C-C> "*y
+nnoremap <C-V> "*p
+
