@@ -56,7 +56,6 @@ syntax on
 set mouse=a
 set number
 set cursorline
-set mouse=a
 runtime! ftplugin/man.vim
 set colorcolumn=81
 set tabstop=4
@@ -73,8 +72,15 @@ set termguicolors
 set fileformat=unix
 set encoding=UTF-8
 set ruler
+set wildmenu
+"autocmd BufNewFile * :setlocal noswapfile | put =''
+"autocmd BufNewFile * :setlocal noswapfile | :0put =''
+
 inoremap <c-x> <Esc>:Lex<cr>:vertical resize 23<cr>
 nnoremap <c-x> <Esc>:Lex<cr>:vertical resize 23<cr>
 vnoremap <C-C> "*y
 nnoremap <C-V> "*p
+"nnoremap <c-a> :below term<cr><cr>
+vnoremap <C-w> :s/^/\/\//<CR>gv
+vnoremap <C-e> :s/^\/\/\s*//<CR>gv
 
