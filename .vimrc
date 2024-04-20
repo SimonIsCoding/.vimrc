@@ -51,14 +51,12 @@ filetype plugin indent on    " required
 
 colorscheme everforest
 
-
 syntax on
 set mouse=a
 set number
 set cursorline
 runtime! ftplugin/man.vim
 set colorcolumn=81
-set tabstop=4
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
@@ -73,6 +71,9 @@ set fileformat=unix
 set encoding=UTF-8
 set ruler
 set wildmenu
+"set autowrite "Automatic save
+"set updatetime=60000
+
 "autocmd BufNewFile * :setlocal noswapfile | put =''
 "autocmd BufNewFile * :setlocal noswapfile | :0put =''
 
@@ -81,6 +82,8 @@ nnoremap <c-x> <Esc>:Lex<cr>:vertical resize 23<cr>
 vnoremap <C-C> "*y
 nnoremap <C-V> "*p
 "nnoremap <c-a> :below term<cr><cr>
-vnoremap <C-w> :s/^/\/\//<CR>gv
-vnoremap <C-e> :s/^\/\/\s*//<CR>gv
+"inoremap <C-> :s/^/\/\//<CR>gv
+"nnoremap <C-> :s/^\/\/\s*//<CR>gv
+nnoremap <C-S-a> :nohlsearch<CR>
+
 
