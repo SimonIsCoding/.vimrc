@@ -51,6 +51,9 @@ filetype plugin indent on    " required
 
 colorscheme everforest
 
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+
 syntax on
 set mouse=a
 set number
@@ -85,5 +88,4 @@ nnoremap <C-V> "*p
 "inoremap <C-> :s/^/\/\//<CR>gv
 "nnoremap <C-> :s/^\/\/\s*//<CR>gv
 nnoremap <C-S-a> :nohlsearch<CR>
-
 
