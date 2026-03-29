@@ -7,10 +7,15 @@ call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
-" let Vundle manage Vundle, required
+call vundle#begin()
+
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'sainnhe/vim-color-forest-night'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+
 call vundle#end()            " required
+
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
@@ -50,9 +55,6 @@ filetype plugin indent on    " required
 
 
 colorscheme everforest
-
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
 
 syntax on
 set mouse=a
