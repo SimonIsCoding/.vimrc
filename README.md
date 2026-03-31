@@ -70,13 +70,3 @@ If `curl` isn't available on a bare Linux machine:
 sudo apt install curl    # Debian / Ubuntu
 sudo dnf install curl    # Fedora
 ```
-
----
-
-## Repo structure
-
-```
-dotfiles/
-├── setup_vim.sh   # Bootstrap script
-└── README.md
-```

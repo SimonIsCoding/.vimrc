@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # =============================================================================
-#  setup_vim.sh — Bootstraps Sim's Vim environment (no sudo required)
+#  setup_vim.sh — Bootstraps Sim's Vim environment 
 #  Supports: macOS (Intel + Apple Silicon), Linux (x86_64)
 # =============================================================================
 set -euo pipefail
@@ -46,14 +46,14 @@ setup_local_bin() {
   ok "~/.local/bin ready"
 }
 
-# ── Homebrew (macOS only, no sudo needed) ────────────────────────────────────
+# ── Homebrew (macOS only) ────────────────────────────────────
 install_homebrew() {
   if [[ "$OS" != "macos" ]]; then return; fi
   if command -v brew &>/dev/null; then
     ok "Homebrew already installed"
     return
   fi
-  info "Installing Homebrew (no sudo needed) …"
+  info "Installing Homebrew …"
   NONINTERACTIVE=1 /bin/bash -c \
     "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   # Add to PATH for Apple Silicon
@@ -177,11 +177,11 @@ print_summary() {
   echo ""
   echo -e "  ${CYAN}~/.vimrc${NC}              pulled from GitHub"
   echo -e "  ${CYAN}~/.vim/bundle/${NC}        Vundle + plugins"
-  echo -e "  ${CYAN}~/.local/bin/${NC}         user binaries (no sudo)"
+  echo -e "  ${CYAN}~/.local/bin/${NC}         user binaries"
   echo -e "  ${CYAN}colorscheme${NC}           everforest (dark/hard)"
   echo ""
-  echo -e "  ${YELLOW}Reload ton shell${NC} → ${CYAN}source ~/.bashrc${NC}  ou  ${CYAN}source ~/.zshrc${NC}"
-  echo -e "  Puis ouvre Vim. Lance ${YELLOW}:PluginInstall${NC} si un plugin manque."
+  echo -e "  ${YELLOW}Reload your shell${NC} → ${CYAN}source ~/.bashrc${NC}  or  ${CYAN}source ~/.zshrc${NC}"
+  echo -e "  Then open Vim. Install ${YELLOW}:PluginInstall${NC} if a plugin is missing."
   echo ""
 }
 
@@ -190,7 +190,6 @@ main() {
   echo -e "${CYAN}"
   echo "  ╔══════════════════════════════════════╗"
   echo "  ║      Sim's Vim Setup Script          ║"
-  echo "  ║      (no sudo required)              ║"
   echo "  ╚══════════════════════════════════════╝"
   echo -e "${NC}"
 
