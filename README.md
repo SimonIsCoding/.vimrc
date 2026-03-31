@@ -1,4 +1,4 @@
-# dotfiles
+# .vimrc
 
 My personal Vim setup, ready to deploy on any fresh machine in one command.
 
