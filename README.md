@@ -5,7 +5,7 @@ My personal Vim setup, ready to deploy on any fresh machine in one command.
 ## Quickstart
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/SimonIsCoding/dotfiles/main/setup_vim.sh | bash
+curl -fsSL https://raw.githubusercontent.com/SimonIsCoding/.vimrc/main/setup_vim.sh | bash
 ```
 
 That's it. The script handles everything else.
