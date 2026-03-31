@@ -96,80 +96,18 @@ install_vundle() {
 }
 
 # ── .vimrc ────────────────────────────────────────────────────────────────────
+VIMRC_URL="https://raw.githubusercontent.com/SimonIsCoding/.vimrc/main/.vimrc"
+
 write_vimrc() {
   local vimrc="$HOME/.vimrc"
   if [[ -f "$vimrc" ]]; then
     warn ".vimrc already exists — backing up to ~/.vimrc.bak"
     cp "$vimrc" "$HOME/.vimrc.bak"
   fi
-  info "Writing .vimrc …"
-  cat > "$vimrc" << 'VIMRC'
-set nocompatible              " be iMproved, required
-filetype off                  " required
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'sainnhe/everforest'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-
-call vundle#end()            " required
-filetype plugin indent on    " required
-
-" ── Everforest theme ─────────────────────────────────────────────────────────
-syntax enable
-if has('termguicolors')
-  set termguicolors
-endif
-set background=dark
-let g:everforest_background              = 'hard'
-let g:everforest_better_performance      = 1
-let g:everforest_highlight               = 1
-let g:everforest_disable_italic_comment  = 1
-let g:airline_theme                      = 'everforest'
-colorscheme everforest
-syntax on
-
-" ── Editor behaviour ─────────────────────────────────────────────────────────
-set mouse=a
-set number
-set cursorline
-set colorcolumn=81
-set ruler
-set wildmenu
-set nowrap
-set noswapfile
-set fileformat=unix
-set encoding=UTF-8
-
-" ── Indentation (tabs, 4 spaces wide, no expansion) ──────────────────────────
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-set autoindent
-set smartindent
-set noexpandtab
-set smarttab
-
-" ── Man pages inside Vim ──────────────────────────────────────────────────────
-runtime! ftplugin/man.vim
-
-" ── Key mappings ─────────────────────────────────────────────────────────────
-" Netrw file explorer (Ctrl-X)
-inoremap <C-X> <Esc>:Lex<CR>:vertical resize 23<CR>
-nnoremap <C-X> <Esc>:Lex<CR>:vertical resize 23<CR>
-
-" Clipboard copy / paste (system clipboard)
-vnoremap <C-C> "*y
-nnoremap <C-V> "*p
-
-" Clear search highlight
-nnoremap <C-S-a> :nohlsearch<CR>
-VIMRC
-  ok ".vimrc written"
+  info "Downloading .vimrc from GitHub …"
+  curl -fsSL "$VIMRC_URL" -o "$vimrc" \
+    || die "Failed to download .vimrc from $VIMRC_URL"
+  ok ".vimrc downloaded"
 }
 
 # ── Plugin installation ───────────────────────────────────────────────────────
